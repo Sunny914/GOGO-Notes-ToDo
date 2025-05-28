@@ -19,7 +19,7 @@ import com.sunny.gogonotesandtodo.ui.theme.GOGONOTESANDTODOTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         val todoViewModel = ViewModelProvider(this)[TodoViewModel::class.java]
         setContent {
             GOGONOTESANDTODOTheme {
