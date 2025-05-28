@@ -1,16 +1,17 @@
 package com.sunny.gogonotesandtodo.DB
 
+import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import java.util.Date
 
 class Converters {
 
-    @TypeConverters
+    @TypeConverter
     fun fromDate(date : Date) : Long{
         return date.time
     }
 
-    @TypeConverters
+    @TypeConverter
     fun toDate(time : Long) : Date{
         return Date(time)
     }

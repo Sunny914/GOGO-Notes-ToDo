@@ -11,7 +11,6 @@ import java.util.Date
 
 class TodoViewModel : ViewModel() {
 
-   //private var _todoList = MutableLiveData<List<Todo>>()
 
     val todoDao = MainApplication.todoDatabase.getTodoDao()
 

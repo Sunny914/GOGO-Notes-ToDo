@@ -3,11 +3,15 @@ package com.sunny.gogonotesandtodo
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+//import androidx.compose.foundation.layout.FlowRowScopeInstance.weight
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -44,33 +48,22 @@ fun TodoListPage(viewModel: TodoViewModel){
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .padding(8.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth()
             .padding(8.dp),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ){
-            OutlinedTextField(value = inputText , onValueChange = {
-                inputText = it
-            })
-            Button(onClick = {
-                viewModel.addTodo(inputText)
-                inputText = ""
-            }) {
-                Text(text = "Add")
-            }
-        }
+            verticalArrangement = Arrangement.Bottom
+    ) {
+
 
         todoList?.let {
             LazyColumn(
                 content = {
                     itemsIndexed(it){index: Int, item: Todo ->
                         TodoItem(item = item, onDelete = {
-                            viewModel.deleteTodo(item.id) 
+                            viewModel.deleteTodo(item.id)
                         })
                     }
-                }
+                },
+                modifier = Modifier.fillMaxSize().weight(1f)
+
             )
         }?: Text(
             text = "No Items Yet",
@@ -79,6 +72,32 @@ fun TodoListPage(viewModel: TodoViewModel){
             fontSize = 16.sp
 
         )
+
+        Row(
+            modifier = Modifier.fillMaxWidth()
+                .padding(8.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
+            OutlinedTextField(value = inputText , onValueChange = {
+                inputText = it
+            },
+                modifier = Modifier.weight(1f).height(50.dp),
+                shape = RoundedCornerShape(30.dp)
+            )
+
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Button(onClick = {
+                if(inputText.trim().isNotEmpty()){
+                    viewModel.addTodo(inputText)
+                    inputText = ""
+                }
+            },
+                modifier = Modifier.height(50.dp)
+                ) {
+                Text(text = "Add")
+            }
+        }
 
     }
 

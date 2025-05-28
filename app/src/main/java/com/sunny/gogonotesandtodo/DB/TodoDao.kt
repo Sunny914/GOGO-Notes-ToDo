@@ -9,12 +9,12 @@ import com.sunny.gogonotesandtodo.Todo
 @Dao
 interface TodoDao {
 
-    @Query("SELECT * FROM TODO")
+    @Query("SELECT * FROM Todo")
     fun getAllTodo() : LiveData<List<Todo>>
 
     @Insert
     fun addTodo(todo : Todo)
 
-    @Query("Delete * FROM Tode where id = :id")
+    @Query("DELETE FROM Todo where id = :id")
     fun deleteTodo(id : Int)
 }
