@@ -27,7 +27,8 @@ class MainActivity : ComponentActivity() {
                   modifier = Modifier.fillMaxSize(),
                   color = MaterialTheme.colorScheme.background
               ){
-                    TodoListPage(todoViewModel)
+                  BottomNavigation(todoViewModel)
+                    //TodoListPage(todoViewModel)
               }
             }
         }
