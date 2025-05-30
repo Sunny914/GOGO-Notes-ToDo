@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 
 @Composable
-fun BottomNavigation(modifier: Modifier = Modifier) {
+fun BottomNavigation(modifier: Modifier = Modifier, todoViewModel: TodoViewModel) {
 
     val navItemList = listOf (
         NavItem("TODO", Icons.Default.CheckCircle),
