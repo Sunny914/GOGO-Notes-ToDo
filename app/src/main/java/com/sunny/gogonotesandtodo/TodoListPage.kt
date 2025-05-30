@@ -98,6 +98,7 @@ fun TodoListPage(viewModel: TodoViewModel){
                 Text(text = "Add")
             }
         }
+        Spacer(modifier = Modifier.height(80.dp))
 
     }
 
