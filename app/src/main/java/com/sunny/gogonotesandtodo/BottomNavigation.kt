@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
 
 @Composable
-fun BottomNavigation(modifier: Modifier = Modifier, viewModel: todoViewModel) {
+fun BottomNavigation(modifier: Modifier = Modifier) {
 
     val navItemList = listOf (
         NavItem("TODO", Icons.Default.CheckCircle),
@@ -34,7 +34,7 @@ fun BottomNavigation(modifier: Modifier = Modifier, viewModel: todoViewModel) {
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
             NavigationBar {
-                navItemList.forEachIndexed { index, navInem ->
+                navItemList.forEachIndexed { index, navItem ->
                     NavigationBarItem(
                         selected = selectedIndex == index,
                         onClick = {
@@ -51,7 +51,7 @@ fun BottomNavigation(modifier: Modifier = Modifier, viewModel: todoViewModel) {
             }
         }
     ) { innerPadding ->
-        ContentScreen(modifier = Modifier.padding(innerPadding), selectedIndex)
+        ContentScreen(modifier = Modifier.padding(innerPadding), selectedIndex, todoViewModel = TodoViewModel())
 
     }
 
