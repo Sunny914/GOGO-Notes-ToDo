@@ -1,4 +1,4 @@
-package com.sunny.gogonotesandtodo
+package com.sunny.gogonotesandtodo.Notes
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

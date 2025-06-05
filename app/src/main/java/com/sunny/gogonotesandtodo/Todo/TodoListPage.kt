@@ -1,4 +1,4 @@
-package com.sunny.gogonotesandtodo
+package com.sunny.gogonotesandtodo.Todo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
+import com.sunny.gogonotesandtodo.R
 import java.text.SimpleDateFormat
 import java.util.Locale
 

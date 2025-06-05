@@ -1,7 +1,6 @@
-package com.sunny.gogonotesandtodo.DB
+package com.sunny.gogonotesandtodo.Utilities
 
 import androidx.room.TypeConverter
-import androidx.room.TypeConverters
 import java.util.Date
 
 class Converters {

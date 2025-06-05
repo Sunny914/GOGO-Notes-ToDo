@@ -1,4 +1,4 @@
-package com.sunny.gogonotesandtodo
+package com.sunny.gogonotesandtodo.BottomNavigation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

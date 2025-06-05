@@ -2,9 +2,8 @@ package com.sunny.gogonotesandtodo
 
 import android.app.Application
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import com.sunny.gogonotesandtodo.DB.NotesDatabase
-import com.sunny.gogonotesandtodo.DB.TodoDatabase
+import com.sunny.gogonotesandtodo.Notes.NotesDatabase
+import com.sunny.gogonotesandtodo.Todo.TodoDatabase
 
 class MainApplication : Application(){
 

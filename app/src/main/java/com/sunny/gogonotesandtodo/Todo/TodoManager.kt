@@ -1,4 +1,4 @@
-package com.sunny.gogonotesandtodo
+package com.sunny.gogonotesandtodo.Todo
 
 import java.time.Instant
 import java.util.Date

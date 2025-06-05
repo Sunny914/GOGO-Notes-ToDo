@@ -1,8 +1,7 @@
-package com.sunny.gogonotesandtodo
+package com.sunny.gogonotesandtodo.Todo
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.Instant
 import java.util.Date
 
 @Entity

@@ -1,9 +1,9 @@
-package com.sunny.gogonotesandtodo.DB
+package com.sunny.gogonotesandtodo.Todo
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.sunny.gogonotesandtodo.Todo
+import com.sunny.gogonotesandtodo.Utilities.Converters
 
 
 @Database(entities = [Todo::class], version = 1)

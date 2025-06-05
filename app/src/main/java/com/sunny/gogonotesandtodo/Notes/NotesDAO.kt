@@ -1,6 +1,5 @@
-package com.sunny.gogonotesandtodo.DB
+package com.sunny.gogonotesandtodo.Notes
 
-import android.icu.text.CaseMap.Title
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert

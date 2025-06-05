@@ -1,8 +1,7 @@
-package com.sunny.gogonotesandtodo.DB
+package com.sunny.gogonotesandtodo.Notes
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.LocalDate
 import java.util.Date
 
 @Entity(tableName = "note")
