@@ -17,9 +17,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun BottomNavigation(modifier: Modifier = Modifier, todoViewModel: TodoViewModel) {
+
+
 
     val navItemList = listOf (
         NavItem("TODO", Icons.Default.CheckCircle),
@@ -51,7 +56,7 @@ fun BottomNavigation(modifier: Modifier = Modifier, todoViewModel: TodoViewModel
             }
         }
     ) { innerPadding ->
-        ContentScreen(modifier = Modifier.padding(innerPadding), selectedIndex, todoViewModel = TodoViewModel())
+        ContentScreen(modifier = Modifier.padding(innerPadding), selectedIndex, todoViewModel)
 
     }
 
@@ -62,9 +67,11 @@ fun BottomNavigation(modifier: Modifier = Modifier, todoViewModel: TodoViewModel
 
     @Composable
     fun ContentScreen(modifier: Modifier = Modifier, selectedIndex : Int, todoViewModel: TodoViewModel){
+        val navController : NavHostController = rememberNavController()
+
         when(selectedIndex){
             0-> TodoListPage(todoViewModel)
-            1-> NotesScreen()
+            1-> NotesScreen(navController)
         }
     }
 

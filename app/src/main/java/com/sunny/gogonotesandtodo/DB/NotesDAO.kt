@@ -8,16 +8,16 @@ import androidx.room.Query
 
 @Dao
 interface NotesDAO {
-    @Query(value = "select * from note")
-    fun getNotes(): LiveData<List<NotesDatabase>>
+    @Query(value = "SELECT * FROM note")
+    fun getNotes(): LiveData<List<NotesDataClass>>
 
     @Insert
-    fun addNotes(note : NotesDatabase)
+    fun addNotes(note : NotesDataClass)
 
-    @Query(value = "update note set title = :title, subtitle = :subtitle where id = :id ")
-    fun updateNotes(title: String, subtitle : String, id : Int)
+   // @Query(value = "update note set title = :title, subtitle = :subtitle where id = :id ")
+    //fun updateNotes(title: String, subtitle : String, id : Int)
 
-    @Query("delete from note where id = :id")
+    @Query("DELETE FROM note where id = :id")
     fun deleteNote(id : Int)
 
 }

@@ -1,15 +1,18 @@
 package com.sunny.gogonotesandtodo.DB
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import java.time.LocalDate
+import androidx.room.Dao
+import androidx.room.Database
+import androidx.room.RoomDatabase
 
-@Entity(tableName = "note")
-data class NotesDatabase(
-    @PrimaryKey(autoGenerate = true)
-    val id : Int,
-    val title : String,
-    val subtitle : String,
-    val time : Long = System.currentTimeMillis(),
-    val date : LocalDate = LocalDate.now()
-)
+import androidx.room.TypeConverters
+
+@Database(version = 1, entities = [NotesDataClass::class])
+@TypeConverters(Converters::class)
+abstract class NotesDatabase : RoomDatabase(){
+
+    companion object{
+        const val NAME = "Notes_DB"
+    }
+
+    abstract fun getNotesDao(): NotesDAO
+}
