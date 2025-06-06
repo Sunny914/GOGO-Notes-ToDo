@@ -14,6 +14,11 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -21,11 +26,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.sunny.gogonotesandtodo.NavController.Routes
 import com.sunny.gogonotesandtodo.ui.theme.body
 import com.sunny.gogonotesandtodo.ui.theme.ctaColor
 
 @Composable
-fun AddNotesScreen(){
+fun AddNotesScreen(viewModel: NotesViewModel, navController: NavController, noteId: Int = -1){
+
+    var title by remember {
+        mutableStateOf("")
+    }
+
+    var subtitle by remember {
+        mutableStateOf("")
+    }
+//
+//    LaunchedEffect(noteId) {
+//        if(noteId != -1){
+//            val existingNote = allNotes.find
+//        }
+//    }
+//
+
     Column(
         Modifier
             .background(body)
@@ -33,16 +56,16 @@ fun AddNotesScreen(){
             .padding(horizontal = 24.dp)
     ) {
         Text(
-            text = "Notes++",
+            text = "Add Notes",
             Modifier.fillMaxWidth().wrapContentHeight(),
             fontSize = 24.sp,
             fontWeight = FontWeight.SemiBold,
             textAlign = TextAlign.Center
         )
         TextField(
-            value = "",
+            value = title,
             onValueChange = {
-
+                title = it
             },
             Modifier
                 .padding(top = 30.dp)
@@ -65,9 +88,9 @@ fun AddNotesScreen(){
         )
 
         TextField(
-            value = "",
+            value = subtitle,
             onValueChange = {
-
+                subtitle = it
             },
             Modifier
                 .padding(top = 30.dp)
@@ -91,7 +114,14 @@ fun AddNotesScreen(){
         )
         Button(
             onClick = {
+                viewModel.addNotes(title, subtitle)
 
+                title = ""
+                subtitle = ""
+
+                navController.navigate(Routes.NotesScreen.routes){
+                    popUpTo(Routes.AddNotesScreen.routes) {inclusive = true}
+                }
             },
             Modifier
                 .padding(top = 20.dp)

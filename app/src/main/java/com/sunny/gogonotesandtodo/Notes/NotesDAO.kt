@@ -13,7 +13,10 @@ interface NotesDAO {
     @Insert
     fun addNotes(note : NotesDataClass)
 
-   // @Query(value = "update note set title = :title, subtitle = :subtitle where id = :id ")
+    @Query(value = "UPDATE note SET title = :title, subtitle = :subtitle WHERE id = :id")
+    fun updateNote(id: Int, title: String, subtitle: String)
+
+   //@Query(value = "update note set title = :title, subtitle = :subtitle where id = :id ")
     //fun updateNotes(title: String, subtitle : String, id : Int)
 
     @Query("DELETE FROM note where id = :id")

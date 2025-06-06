@@ -5,4 +5,8 @@ sealed class Routes(val routes: String) {
     object TodoScreen : Routes("todoScreen")
     object BottomNavigation : Routes("bottomNavigation")
     object AddNotesScreen : Routes("addNotesScreen")
+
+    fun AddNotesScreenWithId(id: Int) = "addNotesScreen/$id"
+
+    data class Screen(val routes: String)
 }
